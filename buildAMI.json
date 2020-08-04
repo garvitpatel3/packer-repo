@@ -1,0 +1,26 @@
+{
+"builders": [
+    {
+      "ami_name": "packer-linux-aws-demo-{{timestamp}}",
+      "instance_type": "t2.micro",
+      "region": "{{user `region`}}",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "amazon*",
+          "root-device-type": "ebs"
+        },
+        "owners": ["amazon"],
+        "most_recent": true
+      },
+      "ssh_username": "ec2-user",
+      "type": "amazon-ebs"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "./apache.sh"
+    }
+  ]
+}
