@@ -3,7 +3,7 @@
     {
       "ami_name": "packer-linux-aws-demo-{{timestamp}}",
       "instance_type": "t2.micro",
-      "region": "{{user `region`}}",
+      "region": "{{user `us-east-1`}}",
       "source_ami_filter": {
         "filters": {
           "virtualization-type": "hvm",
